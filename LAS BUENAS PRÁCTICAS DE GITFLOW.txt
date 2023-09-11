@@ -1,0 +1,210 @@
+﻿INSTRUCTIVO
+________________
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LAS BUENAS PRÁCTICAS DE GITFLOW
+
+
+* GitFlow es el modelo de ramas de Git que se utiliza para organizar el flujo de trabajo de proyectos de software. Este modelo sugiere estructuras ramificadas y reglas para el control de versiones que fomentan el trabajo en equipo y la integración continua del código.
+
+
+1. CREAR Y CONFIGURAR LAS RAMAS PRINCIPALES.
+* Rama master: Sólo las versiones estables y aprobadas de nuestro proyecto deben estar en la rama maestra. Esta rama no debe modificarse directamente.
+* * Rama develop: La base para el desarrollo futuro es esta rama. Para implementar nuevas funciones y corregir errores, todos los desarrolladores trabajarán en esta rama.
+
+
+git checkout -b develop
+git push origin develop
+
+
+2. CREAR RAMAS DE CARACTERÍSTICAS (feature  branches).
+* Cada nueva tarea o característica debe desarrollarse en su propia rama. Se debe utilizar el formato para las ramas de característica/nombre de característica.
+
+
+git checkout -b feature/nueva-funcionalidad develop
+
+
+3. REALIZAR COMMITS Y PRUEBAS.
+* Comprométete con cosas importantes con frecuencia.
+* Asegúrese de que el código funcione correctamente y haya sido probado exhaustivamente antes de enviar una solicitud de extracción.
+
+
+4. SOLICITUD DE EXTRACCIÓN (Pull Request).
+* Haga compromisos significativos de forma regular.
+* Realice una solicitud de extracción desde la rama de desarrollo a la rama de funciones.
+* Obtenga comentarios de los demás miembros del equipo.
+
+
+git push origin feature/nueva-funcionalidad
+
+
+5. INTEGRACIÓN Y REVISIÓN EN LA RAMA DEVELOP.
+* Una vez aprobada la solicitud de extracción, integrar la rama de la característica en `develop`.
+* Realizar una revisión final y asegurarse de que todo funcione correctamente en `develop`.
+
+
+git checkout develop
+git merge --no-ff feature/nueva-funcionalidad
+git push origin develop
+
+
+6. PUBLICACIÓN DE VERSIONES (Releases).
+* Comprométete con cosas importantes con frecuencia.
+* Cuando esté listo para lanzar un conjunto de funciones, cree una rama de lanzamiento y luego cree una solicitud de extracción a partir de ella.
+* Pruebe minuciosamente la rama de lanzamiento y luego combínala con la maestra una vez que haya sido aprobada.
+* Agregue un número de versión adecuado a la etiqueta de versión.
+
+
+git checkout -b release/1.0.0 develop
+* realizamos pruebas y correcciones si es necesario
+git checkout master
+git merge --no-ff release/1.0.0
+git tag 1.0.0
+git push origin master --tags
+
+
+7. HOTFIXES (correcciones de errores).
+* Si se descubre un error crítico en producción, crear una rama de hotfix desde `master`.
+* Realizar correcciones y asegurarse de que se pruebe adecuadamente.
+* Fusionar la rama de hotfix en `master` y `develop`.
+
+
+git checkout -b hotfix/error-critico master
+
+
+* realizamos correcciones y pruebas
+
+
+git checkout master
+git merge --no-ff hotfix/error-critico
+git checkout develop
+git merge --no-ff hotfix/error-critico
+
+
+IDENTIFICAR 3 MEJORAS
+
+
+1. USO DE GIT TAGS PARA VERSIONES:
+* Además de las ramas de características y de versión, considera utilizar etiquetas de Git para marcar versiones específicas de tu sitio web. Esto hace que sea más fácil seguir y acceder a versiones específicas del proyecto en el futuro.
+
+
+Ejemplo: Cuando completes una versión importante de la página web, como la versión 1.0, puedes crear una etiqueta llamada "v1.0" en el commit correspondiente en la rama 'master'. Esto te permite volver a esa versión específica en cualquier momento en el futuro.
+
+
+2. REGISTRO DETALLADO DE CAMBIOS (CHANGELOG):
+* Mantén un registro detallado de los cambios en tu proyecto utilizando un archivo de registro de cambios (changelog). Esto ayuda a tu equipo y a los usuarios a comprender qué ha cambiado en cada versión y a identificar nuevas características o correcciones de errores.
+
+
+Ejemplo: Crea un archivo "CHANGELOG.md" en tu repositorio que enumere las versiones, las fechas y las descripciones de los cambios realizados en cada versión. Actualiza este archivo cada vez que se publique una nueva versión.
+
+
+3. AUTOMATIZACIÓN DE PRUEBAS DE REGRESIÓN:
+* Implementa pruebas de regresión automatizadas para garantizar que las nuevas actualizaciones no afecten negativamente a las funcionalidades existentes del sitio web. Esto reduce la posibilidad de introducir errores inesperados durante el desarrollo de nuevas características.
+
+
+Ejemplo: Utiliza herramientas como Selenium WebDriver o Cypress.io para escribir pruebas de regresión que se ejecuten automáticamente cada vez que se realice una integración en la rama 'develop'. Si las pruebas de regresión detectan un problema, se debe abordar antes de fusionar el código en la rama principal.
+        
+Estas tres mejoras adicionales pueden ayudar a mantener un proceso de desarrollo más organizado, documentado y resistente a errores para tu página web del colegio. Cada una de estas prácticas complementa las buenas prácticas de GitFlow y contribuye a una gestión de proyectos más eficiente y de alta calidad.
