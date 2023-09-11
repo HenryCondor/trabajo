@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav {
+    background: #D31E1E;
+    height: 90px;
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    padding: 2px 50px;
+}
+.logo h3 {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 0 5px;
+}
+
+.logo-icon {
+    height: 60px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover {
+    background: #181d28c2;
+    transition: .5s;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: #FFFFFF;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+section {
+    background: url(IMAGENES/portada.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height:calc(100vh - 80px);
+}
+
+section h1 {
+    color: #FFFFFF;
+    font-size: 50px;
+    background-position: center center;
+    padding: 200px 120px;
+}
+
+@media (max-width: 952px){
+    .logo {
+        padding-left: 20px;
+    }
+
+    nav ul li {
+        font-size: 16px;
+    }
+
+    section h1 {
+        color: #FFFFFF;
+        font-size: 50px;
+        background-position: center center;
+        padding: 200px 120px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn {
+        display: block;
+    }
+
+    ul {
+        position: fixed;
+        width: 100px;
+        height: 100vh;
+        background: #2e323951;
+        top: 88px;
+        left: 100px;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    li a.hover, li a.active {
+        background: none;
+        color: #D31E1E;
+    }
+
+    section h1 {
+        color: #FFFFFF;
+        font-size: 50px;
+        background-position: center center;
+        padding: 200px 120px;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
