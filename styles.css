@@ -1,20 +1,24 @@
-* {
+*{
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
 }
-
 nav {
-    background: #D31E1E;
+    background: url(IMAGENES/portada.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: calc(100vh - 80px);
+}
+.header{
+    background: #181d2800;
     height: 90px;
     width: 100%;
 }
-
-.logo {
+.logo{
     position: absolute;
-    padding: 2px 50px;
+    padding: 10px 50px;
 }
 .logo h3 {
     font-weight: bold;
@@ -22,120 +26,103 @@ nav {
     color: #FFFFFF;
     padding: 0 5px;
 }
-
-.logo-icon {
+.logo-icon{
     height: 60px;
 }
-
-nav ul {
+nav ul{
     float: right;
     margin-right: 20px;
 }
-
 nav ul li{
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
-
-nav ul li a {
+nav ul li a{
     color: #FFFFFF;
-    float: left;
     font-size: 18px;
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
 }
-
-li a.active, li a:hover {
+li a.active, li a:hover{
     background: #181d28c2;
     transition: .5s;
 }
-
-.checkbtn {
+.checkbtn{
     font-size: 30px;
-    color: #FFFFFF;
+    color: #fff;
     float: right;
     line-height: 80px;
     margin-right: 40px;
     cursor: pointer;
     display: none;
 }
-
-#check {
+#check{
     display: none;
 }
 
-section {
-    background: url(IMAGENES/portada.jpg) no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height:calc(100vh - 80px);
-}
-
-section h1 {
+section h3 {
     color: #FFFFFF;
     font-size: 50px;
-    background-position: center center;
-    padding: 200px 120px;
+    text-align: center;
+    padding: 13% 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+footer{
+    background: #D31E1E;
+    height: 100px;
+    width: 100%;
+}
+
+.grupo-2 {
+    color: #171D29;
+    text-align: center;
+    padding: 2% 10px;
 }
 
 @media (max-width: 952px){
-    .logo {
+    .logo{
         padding-left: 20px;
     }
-
-    nav ul li {
+    nav ul li a{
         font-size: 16px;
     }
-
-    section h1 {
-        color: #FFFFFF;
-        font-size: 50px;
-        background-position: center center;
-        padding: 200px 120px;
+    section h1{
+        font: size 30px;
+        position: authority;
     }
 }
 
-@media (max-width: 858px){
-    .checkbtn {
+@media (max-width: 872px){
+    .checkbtn{
         display: block;
     }
-
-    ul {
+    ul{
         position: fixed;
-        width: 100px;
+        width: 100%;
         height: 100vh;
         background: #2e323951;
-        top: 88px;
-        left: 100px;
-        text-align: center;
+        top: 80px;
+        left: -100%;
+        text-align: right;
         transition: all .5s;
     }
-
-    nav ul li {
+    nav ul li{
         display: block;
         margin: 50px 0;
         line-height: 30px;
     }
-
-    nav ul li a {
+    nav ul li a{
         font-size: 20px;
     }
-
-    li a.hover, li a.active {
+    li a:hover, li a.active{
         background: none;
-        color: #D31E1E;
+        color: red;
     }
-
-    section h1 {
-        color: #FFFFFF;
-        font-size: 50px;
-        background-position: center center;
-        padding: 200px 120px;
-    }
-
     #check:checked ~ ul{
-        left: 0;
+        left:0;
     }
 }
